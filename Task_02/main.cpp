@@ -23,6 +23,9 @@ public:
 		delete[] array;
 	};
 
+	Table(const Table&) = delete;
+	Table& operator=(const Table&) = delete;
+
 // operator [] overload
 	T* operator[](const int index)
 	{
@@ -40,5 +43,9 @@ int main() {
 	auto test = Table<int>(2, 3);
 	test[0][0] = 4;
 	std::cout << test[0][0]; // выводит 4
+
+	Table<int> t1(2, 3);
+	Table<int> t2(2, 3);
+	t1 = t2;
 	return 0;
 }
